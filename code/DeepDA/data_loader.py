@@ -4,14 +4,14 @@ import torch
 def load_data(data_folder, batch_size, train, num_workers=0, **kwargs):
     transform = {
         'train': transforms.Compose(
-            [transforms.Resize([1201, 1201]),
-                transforms.RandomCrop(1200),
+            [transforms.Resize([225, 225]),
+                transforms.RandomCrop(224),
                 transforms.RandomHorizontalFlip(),
                 transforms.ToTensor(),
                 transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                   std=[0.229, 0.224, 0.225])]),
         'test': transforms.Compose(
-            [transforms.Resize([1200, 1200]),
+            [transforms.Resize([224, 224]),
                 transforms.ToTensor(),
                 transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                   std=[0.229, 0.224, 0.225])])
