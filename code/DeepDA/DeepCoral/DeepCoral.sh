@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-GPU_ID=1
-data_dir=/home/houwx/tl/datasets/office31
+GPU_ID=0
+data_dir=/home/houwx/tl/datasets
 # Office31
-CUDA_VISIBLE_DEVICES=$GPU_ID python main.py --config DeepCoral/DeepCoral.yaml --data_dir $data_dir --src_domain dslr --tgt_domain amazon | tee DeepCoral_D2A.log
+CUDA_VISIBLE_DEVICES=$GPU_ID python main.py --config DeepCoral/DeepCoral.yaml --data_dir $data_dir --src_domain src_hm --tgt_domain tgt_hm | tee DeepCoral_D2A.log
 # CUDA_VISIBLE_DEVICES=$GPU_ID python main.py --config DeepCoral/DeepCoral.yaml --data_dir $data_dir --src_domain dslr --tgt_domain webcam | tee DeepCoral_D2W.log
 
 # CUDA_VISIBLE_DEVICES=$GPU_ID python main.py --config DeepCoral/DeepCoral.yaml --data_dir $data_dir --src_domain amazon --tgt_domain dslr | tee DeepCoral_A2D.log
